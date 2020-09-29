@@ -1,0 +1,20 @@
+// example .proto file
+// see eg_echo/ folder with Messages/ and Services/ classes — "generated" from this schema
+
+syntax = "proto3";
+
+package eg.echo;
+
+// ---
+
+service EchoService {
+    rpc echo (PingMessage) returns (PongMessage);
+}
+
+message PingMessage {
+    string message = 1;
+}
+
+message PongMessage {
+    string message = 1;
+}

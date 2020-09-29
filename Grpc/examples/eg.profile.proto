@@ -1,0 +1,55 @@
+// example .proto file
+// see eg_profile/ folder with Messages/ and Services/ classes — "generated" from this schema
+
+syntax = "proto3";
+
+package eg.profile;
+
+// ---
+
+message PointData {
+    int64 userId = 1;
+    float x1 = 2;
+    float x2 = 3;
+    float y1 = 4;
+    float y2 = 5;
+}
+
+message UpdateProfileImagesRequest {
+    int64 userId = 1;
+    uint32 gender = 2;
+
+    message ProfileImageData {
+        int32 ownerId = 1;
+        uint32 photoId = 2;
+        repeated string url = 3;
+        repeated PointData point = 4;
+        bool avatar = 5;
+    }
+    repeated ProfileImageData image = 3;
+}
+
+message ImageSizeRequest {
+    message DownloadData {
+        int32 ownerId = 1;
+        uint32 photoId = 2;
+        string url = 3;
+    }
+    ImageDownloadData image = 1;
+}
+
+message ImageSizeResult {
+    PointData point = 1;
+}
+
+message EmptyResult {
+
+}
+
+// ---
+
+service DemoImageSizeService {
+    rpc getImageSize (ImageSizeRequest) returns (ImageSizeResult);
+    rpc updateProfileImages (UpdateProfileImagesRequest) returns (EmptyResult);
+}
+
