@@ -7,6 +7,7 @@ You can use this repo
 * for using some of this code in your project (in a copy-paste manner)
 
 Each library has its own *README* with detailed instructions:
+* [JobWorkers](JobWorkers) — true parallelism inside KPHP, separate processes besides http workers
 * [Protobuf](Protobuf) — encode/decode data to Protobuf binary format and back, based on .proto scheme
 * [Grpc](Grpc) — send Protobuf encoded data via gRPC and parse received bytes
 * [minutiae](minutiae) — various single-file PHP snippets
